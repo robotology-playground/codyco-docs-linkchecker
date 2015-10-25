@@ -8,5 +8,5 @@ ignore=
   iDynTreeMATLAB
 
 
-# Don't raise an error if server does not reply 
-ignore-warnings=url-error-getting-content
+# Don't raise an error if server does not reply or if the file is too large
+ignorewarnings=url-error-getting-content,url-content-too-large
