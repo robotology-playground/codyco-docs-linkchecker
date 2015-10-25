@@ -2,8 +2,19 @@ language: python
 
 python:
   - "2.7"
+  
+# URL_TO_CHECK is the url checked for broken links,
+# RECURSION_LEVEL is the -r option of linkcheck, 
+# described as : "Check recursively all links up to given depth. A
+# negative depth will enable infinite recursion. Default
+# depth is infinite."
+# for wiki.codyco.eu we need a finite RECURSION_LEVEL, otherwise 
+# we finish the time available for a travis build 
+env:
+  - URL_TO_CHECK=http://www.codyco.eu RECURSION_LEVEL=-1
+  - URL_TO_CHECK=http://wiki.icub.org/codyco RECURSION_LEVEL=10
 
 install: "pip install LinkChecker"
 
 script: 
-  - linkchecker -f codyco-linkcheckerrc --check-extern www.codyco.eu
+  - linkchecker -r ${RECURSION_LEVEL} -f codyco-linkcheckerrc --check-extern ${URL_TO_CHECK}
