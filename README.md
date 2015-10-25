@@ -1,4 +1,4 @@
-# codyco-docs-linkchecker
+# codyco-docs-linkchecker [![Build Status](https://travis-ci.org/robotology-playground/codyco-docs-linkchecker.svg?branch=master)](https://travis-ci.org/robotology-playground/codyco-docs-linkchecker)
 Script for checking broken links in website and documentation of the CoDyCo EU project. 
 
 # Use 
