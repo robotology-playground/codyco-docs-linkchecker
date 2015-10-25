@@ -1,0 +1,12 @@
+[filtering] 
+# Avoid false 404's on MediaWiki 
+# https://github.com/wummel/linkchecker/issues/280
+ignore=
+  ^http://.*%3A.*
+  ^http://.*:.*
+  # avoid error related to the enormous file iDynTree SWIG Matlab
+  iDynTreeMATLAB
+
+
+# Don't raise an error if server does not reply 
+ignore-warnings=url-error-getting-content
