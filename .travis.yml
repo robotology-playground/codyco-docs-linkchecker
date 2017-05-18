@@ -13,6 +13,7 @@ python:
 env:
   - URL_TO_CHECK=http://www.codyco.eu RECURSION_LEVEL=-1
   - URL_TO_CHECK=http://wiki.icub.org/codyco RECURSION_LEVEL=10
+  - URL_TO_CHECK=http://yarp.it RECURSION_LEVEL=5
 
 install: "pip install LinkChecker"
 
