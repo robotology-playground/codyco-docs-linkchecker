@@ -16,13 +16,13 @@ services:
 # for wiki.codyco.eu we need a finite RECURSION_LEVEL, otherwise 
 # we finish the time available for a travis build 
 env:
-  - URL_TO_CHECK=http://yarp.it
+  - URL_TO_CHECK=http://yarp.it 
 
 install:
   - docker pull ellerbrock/link-checker
 
 script:
-  - docker run ellerbrock/link-checker ${URL_TO_CHECK}
+  - docker run ellerbrock/link-checker --check-extern ${URL_TO_CHECK}
 
 notifications:
   email:
