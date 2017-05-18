@@ -1,7 +1,12 @@
-language: python
+# Travis file inspired by https://github.com/ellerbrock/travis-link-checker
+# 
 
-python:
-  - "3.5"
+sudo: false
+
+language: bash
+
+services:
+  - docker
   
 # URL_TO_CHECK is the url checked for broken links,
 # RECURSION_LEVEL is the -r option of linkcheck, 
@@ -11,11 +16,15 @@ python:
 # for wiki.codyco.eu we need a finite RECURSION_LEVEL, otherwise 
 # we finish the time available for a travis build 
 env:
-  - URL_TO_CHECK=http://www.codyco.eu RECURSION_LEVEL=-1
-  - URL_TO_CHECK=http://wiki.icub.org/codyco RECURSION_LEVEL=10
-  - URL_TO_CHECK=http://yarp.it RECURSION_LEVEL=5
+  - URL_TO_CHECK=http://yarp.it
 
-install: "pip install LinkChecker"
+install:
+  - docker pull ellerbrock/link-checker
 
-script: 
-  - linkchecker -r ${RECURSION_LEVEL} -f codyco-linkcheckerrc --check-extern ${URL_TO_CHECK}
+script:
+  - docker run ellerbrock/link-checker ${URL_TO_CHECK}
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
