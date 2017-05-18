@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "2.7"
+  - "3.5"
   
 # URL_TO_CHECK is the url checked for broken links,
 # RECURSION_LEVEL is the -r option of linkcheck, 
